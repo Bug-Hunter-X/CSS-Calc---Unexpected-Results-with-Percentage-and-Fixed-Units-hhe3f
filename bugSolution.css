@@ -1,0 +1,23 @@
+/* bugSolution.css */
+/* Solution 1: Use viewport units (vw) for a consistent calculation relative to the viewport width. */
+.container {
+  width: 50vw;
+  /* ... other styles ... */
+}
+
+/* Solution 2: Explicitly set the container width and use that as a basis. */
+.container {
+  width: 500px;
+}
+.element {
+  width: calc(50% - 10px);
+}
+/* In this case, the 50% would always be 50% of the 500px container, solving the problem. */
+
+/* Solution 3 (JavaScript): If you need dynamic calculations, Javascript offers more flexibility. */
+/* Example JavaScript (requires adjusting to your specific HTML structure): */
+let container = document.querySelector('.container');
+let element = document.querySelector('.element');
+let containerWidth = container.offsetWidth;
+let elementWidth = containerWidth * 0.5 - 10; 
+element.style.width = elementWidth + 'px'; 
